@@ -82,6 +82,9 @@ for sec in section:
     tempDate = date
     if "UPDATED" in tempDate:
         tempDate = tempDate.replace("UPDATED", "").strip()
+    ###update due to "LIVE" being present in time scrape
+    if "LIVE" in tempDate:
+        tempDate = tempDate.replace("LIVE", "").strip()
     if "min" in tempDate:
         numb = int(tempDate.split()[0])
         date_obj = scrape_time - timedelta(minutes=numb)
